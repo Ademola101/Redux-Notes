@@ -6,16 +6,15 @@ import reportWebVitals from './reportWebVitals';
 
 import { createStore} from 'redux'
 
-const noteReducer = (state = [], action) => {
-  if (action.type === 'NEW NOTE') {
-     state.push(action.data)
-     return state
-  }
-return state
-}
-
 const store = createStore(noteReducer)
 
+{
+  type: 'TOGGLE_IMPORTANCE',
+
+  data: {
+    id : 2
+  }
+}
 store.dispatch({
   type: 'NEW NOTE',
   data: {
