@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import noteReducer from './reducers/noteReducer';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -8,13 +9,18 @@ import { createStore} from 'redux'
 
 const store = createStore(noteReducer)
 
-{
-  type: 'TOGGLE_IMPORTANCE',
 
-  data: {
-    id : 2
+store.dispatch(
+
+  {
+    type: 'TOGGLE_IMPORTANCE',
+  
+    data: {
+      id : 2
+    }
   }
-}
+
+)
 store.dispatch({
   type: 'NEW NOTE',
   data: {
