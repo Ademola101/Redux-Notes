@@ -14,6 +14,26 @@ const generateId = () => {
 }
 
 
+
+const toggleImportanceIdOf = (id) => {
+  return ({
+    type: 'TOGGLE_IMPORTANCE',
+    data: {id}
+  })
+}
+const createNote = (content) => {
+
+  return {
+    type: 'NEW_NOTE',
+    data: {
+      content,
+      important: false,
+      id: generateId()
+    }
+  }
+
+}
+
 store.dispatch({
   type: 'NEW NOTE',
   data: {
@@ -37,23 +57,16 @@ const addNote = (e) => {
 
   const content = e.target.note.value
   e.target.note.value = ''
-  store.dispatch({
-    type: 'NEW_NOTE',
-    data: {
-      content,
-      important: false,
-      id: generateId()
-    }
-  })
+  store.dispatch(
+
+    createNote(content)
+  )
 
 }
 
 
 const toggleImportance = (id) => {
-  store.dispatch({
-    type: 'TOGGLE_IMPORTANCE',
-    data: { id }
-  })
+  store.dispatch(toggleImportanceIdOf(id))
 }
 function App() {
   return (
@@ -66,7 +79,7 @@ function App() {
     </form>
 <ul>
   {store.getState().map(note => {
-    return <li onClick={() => {console.log(note.id); toggleImportance(note.id)}} key={note.id}> {note.content}  <strong> {note.important ? 'note' : ''}</strong></li>
+    return <li onClick={() => {toggleImportance(note.id)}} key={note.id}> {note.content}  <strong> {note.important ? 'note' : ''}</strong></li>
   })}
 </ul>
 
