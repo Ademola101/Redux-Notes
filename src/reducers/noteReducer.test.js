@@ -47,7 +47,7 @@ describe('noteReducer', () => {
       deepFreeze(state)
       const newState = noteReducer(state, action);
       expect(newState).toHaveLength(2)
-      expect(newState).toContainEqual(state[2])
+      expect(newState).toContainEqual(state[0])
       expect(newState).toContainEqual({
         content: 'state changes are made with actions',
         important: true,
