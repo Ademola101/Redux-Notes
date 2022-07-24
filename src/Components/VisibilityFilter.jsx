@@ -1,6 +1,5 @@
 import React from 'react'
 import {useDispatch} from 'react-redux'
-import filterReducer from '../reducers/FilterReducer';
 import { filterChange } from '../reducers/FilterReducer';
 export default function VisibilityFilter() {
 
