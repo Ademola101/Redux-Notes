@@ -23,12 +23,8 @@ const Notes = () => {
     if(state.filter === 'ALL') {
       return state.notes
     }
-    if (state.filter === 'IMPORTANT') {
-      return state.notes.filter(note => note.important === true)
-    }
-    if (state.filter === 'NONIMPORTANT') {
-      return state.notes.filter(note => note.important === false)
-    }
+    return state.filter === 'IMPORTANT' ? state.notes.filter(note => note.important) : 
+    state.notes.filter(note => !note.important)
   })
 
   return (
