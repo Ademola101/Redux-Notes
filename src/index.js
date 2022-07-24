@@ -7,21 +7,19 @@ import filterReducer from './reducers/FilterReducer'
 import App from './App';
 import {filterChange} from './reducers/FilterReducer'
 import {createNote} from './reducers/noteReducer'
+import {configureStore} from '@reduxjs/toolkit'
 
 
-import { createStore, combineReducers} from 'redux'
 
 
 
-const reducers = combineReducers({
-  notes: noteReducer,
+const store = configureStore({
+  reducer: {
+    notes: noteReducer,
   filter: filterReducer
 
+  }
 })
-
-
-
-const store = createStore(reducers)
 
 
 
