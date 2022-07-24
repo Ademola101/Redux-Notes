@@ -3,13 +3,25 @@ import ReactDOM from 'react-dom/client';
 import {Provider} from 'react-redux'
 import './index.css';
 import noteReducer from './reducers/noteReducer';
+import filterReducer from './reducers/FilterReducer'
 import App from './App';
+import {filterChange} from './reducers/FilterReducer'
+import {createNote} from './reducers/noteReducer'
+
+
+import { createStore, combineReducers} from 'redux'
 
 
 
-import { createStore} from 'redux'
+const reducers = combineReducers({
+  notes: noteReducer,
+  filter: filterReducer
 
-const store = createStore(noteReducer)
+})
+
+
+
+const store = createStore(reducers)
 
 
 
@@ -35,18 +47,12 @@ store.dispatch({
 
 
 
-
-
-
-
-
-const root = ReactDOM.createRoot(document.getElementById('root'))
-const renderApp = () => {
-  root.render(
+store.subscribe(() => console.log(store.getState()))
+store.dispatch(filterChange('IMPORTANT'))
+store.dispatch(createNote('combineReducers forms one reducer from many simple reducers'))
+ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
-  <App />
-  </Provider>)
-}
-
-renderApp()
-store.subscribe(renderApp)
+    <App />
+  </Provider>
+)// renderApp()
+// store.subscribe(renderApp)
