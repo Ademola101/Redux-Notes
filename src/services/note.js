@@ -7,9 +7,18 @@ const getAll = async() => {
   return response.data
 }
 
+const creatNew = async (content) => {
+
+  const object = {content, important: false}
+  const response = await axios.post(baseUrl, object)
+  return response.data
+
+
+}
 
 const noteService = {
-  getAll
+  getAll,
+  creatNew
 }
 
 export default noteService

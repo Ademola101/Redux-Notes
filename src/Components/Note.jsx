@@ -31,7 +31,7 @@ const Notes = () => {
     <div>
       {notes.map (note => {
         return (
-          <Note note={note} handleClick = {() => dispatch(toggleImportanceIdOf(note.id))}/>
+          <Note key={note.id} note={note} handleClick = {() => dispatch(toggleImportanceIdOf(note.id))}/>
         )
 
       
