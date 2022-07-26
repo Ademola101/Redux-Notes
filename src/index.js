@@ -2,12 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {Provider} from 'react-redux'
 import './index.css';
-import noteReducer from './reducers/noteReducer';
+import noteReducer, {setNotes} from './reducers/noteReducer';
 import filterReducer from './reducers/FilterReducer'
 import App from './App';
 import {filterChange} from './reducers/FilterReducer'
 import {createNote} from './reducers/noteReducer'
 import {configureStore} from '@reduxjs/toolkit'
+import noteService from './services/note';
 
 
 
@@ -20,6 +21,15 @@ const store = configureStore({
 
   }
 })
+
+
+noteService.getAll().then((notes) => {
+
+  store.dispatch(setNotes(notes))
+
+})
+
+
 
 
 

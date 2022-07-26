@@ -35,7 +35,12 @@ const noteSlice = createSlice({
     },
 
     appendNote(state, action) {
+      return state.push(action.payload)
+    },
+
+    setNotes(state, action) {
       return action.payload
+      // replace the initial note
     }
   }
 })
@@ -44,5 +49,5 @@ const generateId = () => {
   return  Math.floor(Math.random() * 100 )
  }
  
-export const {createNote, toggleImportanceIdOf} = noteSlice.actions
+export const {createNote, toggleImportanceIdOf, appendNote, setNotes} = noteSlice.actions
 export default noteSlice.reducer
