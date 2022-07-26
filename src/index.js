@@ -23,26 +23,26 @@ const store = configureStore({
 })
 
 
-noteService.getAll().then((notes) => {
+// noteService.getAll().then((notes) => {
 
-  store.dispatch(setNotes(notes))
+//   store.dispatch(setNotes(notes))
 
-})
-
-
+// })
 
 
 
 
 
-store.dispatch({
-  type: 'NEW NOTE',
-  data: {
-    content: 'the app state is in redux store',
-    important: true,
-    id: 1
-  }
-})
+
+
+// store.dispatch({
+//   type: 'NEW NOTE',
+//   data: {
+//     content: 'the app state is in redux store',
+//     important: true,
+//     id: 1
+//   }
+// })
 store.dispatch({
   type: 'NEW NOTE',
   data: {
