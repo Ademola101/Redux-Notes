@@ -10,13 +10,13 @@ function App() {
 
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(initializeNotes)
+    dispatch(initializeNotes())
   }, [dispatch])
 
   return (
   <div> 
-<NewNote/>
-<VisibilityFilter/>
+ <NewNote/>
+ <VisibilityFilter/>
     <Notes/>
   </div>
     );

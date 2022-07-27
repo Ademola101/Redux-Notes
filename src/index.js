@@ -2,23 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {Provider} from 'react-redux'
 import './index.css';
-import noteReducer from './reducers/noteReducer';
-import filterReducer from './reducers/FilterReducer'
 import App from './App';
-import {configureStore} from '@reduxjs/toolkit'
+import store from './store'
 
 
 
 
 
-
-const store = configureStore({
-  reducer: {
-    notes: noteReducer,
-  filter: filterReducer
-
-  }
-})
 
 
 // noteService.getAll().then((notes) => {
@@ -41,14 +31,14 @@ const store = configureStore({
 //     id: 1
 //   }
 // })
-store.dispatch({
-  type: 'NEW NOTE',
-  data: {
-    content: 'state changes are made with actions',
-    important: false,
-    id: 2
-  }
-})
+// store.dispatch({
+//   type: 'NEW NOTE',
+//   data: {
+//     content: 'state changes are made with actions',
+//     important: false,
+//     id: 2
+//   }
+// })
 
 
 

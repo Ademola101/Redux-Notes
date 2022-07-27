@@ -32,7 +32,7 @@ const noteSlice = createSlice({
     },
 
     appendNote(state, action) {
-      return state.push(action.payload)
+      return [...state, action.payload]
     },
 
     setNotes(state, action) {
@@ -54,5 +54,11 @@ export const initializeNotes = () => {
   }
 }
 
-export const {createNote, toggleImportanceIdOf, appendNote, setNotes} = noteSlice.actions
+export const createNote = (content) => {
+  return async dispatch => {
+    const newNote = await noteService.creatNew(content)
+    dispatch(appendNote(newNote))
+  }
+}
+export const { toggleImportanceIdOf, appendNote, setNotes} = noteSlice.actions
 export default noteSlice.reducer
