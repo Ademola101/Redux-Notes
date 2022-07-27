@@ -1,4 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit'
+import noteService from '../services/note'
 //  const initialState = [
 //   {
 //     content: 'reducer defines how redux store works',
@@ -45,5 +46,13 @@ const noteSlice = createSlice({
 //   return  Math.floor(Math.random() * 100 )
 //  }
  
+export const initializeNotes = () => {
+
+  return async dispatch => {
+    const notes  = await noteService.getAll()
+    dispatch(setNotes(notes))
+  }
+}
+
 export const {createNote, toggleImportanceIdOf, appendNote, setNotes} = noteSlice.actions
 export default noteSlice.reducer
