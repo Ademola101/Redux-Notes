@@ -21,6 +21,7 @@ const Notes = () => {
   const dispatch = useDispatch()
   const notes = useSelector(({notes, filter}) => {
     if(filter === 'ALL') {
+
       return notes
     }
     return filter === 'IMPORTANT' ? notes.filter(note => note.important) : 

@@ -12,7 +12,7 @@ export default function NewNote(props) {
   
     const content = e.target.note.value
     e.target.note.value = ''
-    const note = noteService.creatNew(content)
+    const note = await noteService.creatNew(content)
 
     dispatch(
 
