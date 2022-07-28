@@ -1,10 +1,10 @@
 import NewNote from './Components/NewNote'
-import Notes from './Components/Note'
 import VisibilityFilter from './Components/VisibilityFilter';
 import {useEffect} from 'react'
 import {setNotes} from './reducers/noteReducer'
 import noteService from './services/note';
 import {useDispatch} from 'react-redux'
+import NoteList from './Components/NoteList';
 
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
   <div> 
 <NewNote/>
 <VisibilityFilter/>
-    <Notes/>
+    <NoteList/>
   </div>
     );
 }
